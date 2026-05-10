@@ -51,12 +51,12 @@ export function Navigation() {
   }, [])
 
   const navLinkClass =
-    "text-2xl md:text-3xl lg:text-4xl xl:text-[2.75rem] leading-none tracking-tight"
+    "text-sm md:text-base leading-none tracking-wide"
 
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/projects", label: "Projects" },
-    { href: "/about", label: "About Us" },
+    { href: "/about", label: "About Me" },
   ]
 
   return (
@@ -79,33 +79,33 @@ export function Navigation() {
                 : "bg-transparent"
         }`}
       >
-        <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <nav className="max-w-7xl mx-auto px-6 py-3 flex items-center justify-between">
           {/* Logo / Profile */}
           <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
             <motion.div 
               whileHover={{ scale: 1.05 }}
-              className={`relative flex-shrink-0 h-12 w-12 overflow-hidden border-2 border-[#18A5FD]/25 shadow-md transition-colors group-hover:border-[#18A5FD]/55 ${
-                isCaseStudy ? "rounded-full" : "rounded-xl"
+              className={`relative flex-shrink-0 h-9 w-9 overflow-hidden border-2 border-[#18A5FD]/25 shadow-md transition-colors group-hover:border-[#18A5FD]/55 ${
+                isCaseStudy ? "rounded-full" : "rounded-lg"
               }`}
             >
               <Image
                 src="/images/myself.png"
                 alt="Kencho Dorji"
-                width={48}
-                height={48}
+                width={36}
+                height={36}
                 className="object-cover w-full h-full"
               />
             </motion.div>
             <div>
               <p
-                className={`font-sans font-bold text-lg leading-tight ${
+                className={`font-sans font-semibold text-sm leading-tight ${
                   isLightHeroTop && !scrolled ? "text-neutral-900" : "text-[#1a3a5c]"
                 }`}
               >
                 Kencho Dorji
               </p>
               <p
-                className={`text-xs font-medium ${
+                className={`text-[10px] font-medium ${
                   isLightHeroTop && !scrolled ? "text-neutral-600" : ""
                 }`}
                 style={isLightHeroTop && !scrolled ? undefined : { color: siteTheme.brand }}
@@ -115,8 +115,8 @@ export function Navigation() {
             </div>
           </Link>
 
-          {/* Desktop Navigation - Large staggered sizes */}
-          <div className="hidden md:flex items-center gap-10">
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link, index) => (
               <Link
                 key={link.href}
@@ -134,7 +134,7 @@ export function Navigation() {
               >
                 {link.label}
                 <motion.span
-                  className={`absolute -bottom-1 left-0 h-[3px] rounded-full ${
+                  className={`absolute -bottom-0.5 left-0 h-[2px] rounded-full ${
                     isLightHeroTop && !scrolled ? "bg-white" : "bg-[#18A5FD]"
                   }`}
                   initial={{ width: 0 }}
@@ -168,7 +168,7 @@ export function Navigation() {
               transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
               className="md:hidden border-b border-[#18A5FD]/25 bg-white/95 backdrop-blur-xl"
             >
-              <div className="px-6 py-6 flex flex-col gap-3">
+              <div className="px-6 py-4 flex flex-col gap-2">
                 {navLinks.map((link, index) => (
                   <motion.div
                     key={link.href}
@@ -179,7 +179,7 @@ export function Navigation() {
                     <Link
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`block py-3 font-sans font-bold text-3xl md:text-4xl ${
+                      className={`block py-2 font-sans font-semibold text-base ${
                         pathname === link.href ? "text-[#1a3a5c]" : "text-[#1a3a5c]/70"
                       }`}
                     >

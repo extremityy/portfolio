@@ -180,7 +180,7 @@ export function CTASection() {
                     className="rounded-full bg-[#1a3a5c] px-10 py-7 text-lg font-medium text-white shadow-xl transition-all duration-300 hover:bg-[#0d2440]"
                   >
                     <Link href="/about">
-                      Contact Us
+                      Contact Me
                       <motion.span
                         className="ml-3 inline-block"
                         initial={{ x: 0 }}
