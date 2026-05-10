@@ -303,6 +303,21 @@ export function HeroSection() {
               >
                 <Link href="/about">More</Link>
               </Button>
+              <Button
+                asChild
+                variant="outline"
+                className="rounded-full px-6 py-5 text-sm font-semibold shadow-md transition-all hover:opacity-90"
+                style={{
+                  borderColor: siteTheme.navy,
+                  color: siteTheme.navy,
+                  background: "rgba(255,255,255,0.55)",
+                  backdropFilter: "blur(8px)",
+                }}
+              >
+                <a href="/cv.pdf" download="Kencho_Dorji_CV.pdf">
+                  Download CV
+                </a>
+              </Button>
             </div>
 
             <div className="flex items-center gap-4 pt-1">

@@ -8,6 +8,7 @@ import { Footer } from "@/components/footer"
 import { Palette, Code, Layers, Sparkles, Mail, MapPin, Phone, type LucideIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { SkillsMarqueeGsap } from "@/components/skills-marquee-gsap"
+import { SkillsBubbles } from "@/components/skills-bubbles"
 import { siteTheme } from "@/lib/site-theme"
 import Image from "next/image"
 
@@ -346,6 +347,8 @@ export default function AboutPageClient() {
           </div>
         </div>
       </section>
+
+      <SkillsBubbles />
 
       <AboutServicesFocusSection />
 
