@@ -6,19 +6,16 @@ import Link from "next/link"
 import { gsap } from "gsap"
 import { ArrowRight, Download } from "lucide-react"
 import { siteTheme } from "@/lib/site-theme"
-import { InteractiveAvatar } from "@/components/interactive-avatar"
 import { FlipLine } from "@/components/flip-text"
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
-  const avatarRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const container = containerRef.current
     const content = contentRef.current
-    const avatar = avatarRef.current
-    if (!container || !content || !avatar) return
+    if (!container || !content) return
 
     const ctx = gsap.context(() => {
       // Animate content
@@ -26,13 +23,6 @@ export function HeroSection() {
         content.children,
         { y: 40, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.9, ease: "power3.out", stagger: 0.12, delay: 0.35 }
-      )
-
-      // Animate avatar
-      gsap.fromTo(
-        avatar,
-        { y: 40, opacity: 0, scale: 0.95 },
-        { y: 0, opacity: 1, scale: 1, duration: 1.1, ease: "power3.out", delay: 0.5 }
       )
     }, container)
 
@@ -46,9 +36,9 @@ export function HeroSection() {
       style={{ backgroundColor: siteTheme.lightBlue }}
     >
       <div className="relative z-[2] flex min-h-[100dvh] flex-col">
-        <div className="flex w-full flex-1 flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-16 pt-28 pb-12 md:pt-32 lg:pt-24 max-w-7xl mx-auto">
-          {/* Left Content */}
-          <div ref={contentRef} className="flex flex-col max-w-2xl lg:max-w-xl xl:max-w-2xl">
+        <div className="flex w-full flex-1 flex-col items-center justify-center px-6 md:px-12 lg:px-16 pt-28 pb-12 md:pt-32 lg:pt-24 max-w-5xl mx-auto text-center">
+          {/* Content */}
+          <div ref={contentRef} className="flex flex-col items-center">
             {/* Role Badge */}
             <div className="flex items-center gap-2 mb-8">
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#1a3a5c]/10 border border-[#1a3a5c]/20">
@@ -86,14 +76,14 @@ export function HeroSection() {
             </h1>
 
             {/* Description */}
-            <p className="text-[#1a3a5c]/70 text-base md:text-lg leading-relaxed max-w-md mb-8">
+            <p className="text-[#1a3a5c]/70 text-base md:text-lg leading-relaxed max-w-xl mb-8">
               I&apos;m Kencho Dorji — helping startups build intuitive digital
               products through strategy, visual storytelling, and seamless
               user experience.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-4">
               <Button
                 asChild
                 className="bg-[#18A5FD] hover:bg-[#1290e0] text-white rounded-full px-6 py-6 text-sm font-semibold shadow-md transition-all duration-300 hover:shadow-lg group"
@@ -121,16 +111,6 @@ export function HeroSection() {
               >
                 Contact Me
               </Link>
-            </div>
-          </div>
-
-          {/* Right - Interactive 3D Avatar */}
-          <div 
-            ref={avatarRef}
-            className="relative mt-12 lg:mt-0 flex-shrink-0"
-          >
-            <div className="relative w-[280px] h-[380px] md:w-[320px] md:h-[420px] lg:w-[380px] lg:h-[480px] xl:w-[420px] xl:h-[520px]">
-              <InteractiveAvatar className="w-full h-full" />
             </div>
           </div>
         </div>

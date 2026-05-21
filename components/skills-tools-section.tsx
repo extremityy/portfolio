@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { siteTheme } from "@/lib/site-theme"
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger)
@@ -89,7 +90,7 @@ export function SkillsToolsSection() {
     <section
       ref={sectionRef}
       className="relative py-24 md:py-32 px-6"
-      style={{ backgroundColor: "#FAFAFA" }}
+      style={{ backgroundColor: siteTheme.lightBlue }}
     >
       <div ref={contentRef} className="max-w-7xl mx-auto">
         {/* Section Header */}
