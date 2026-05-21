@@ -3,21 +3,22 @@
 import { useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
+import Image from "next/image"
 import { gsap } from "gsap"
 import { ArrowRight, Download } from "lucide-react"
 import { siteTheme } from "@/lib/site-theme"
-import { InteractiveAvatar } from "@/components/interactive-avatar"
+import { FlipLine } from "@/components/flip-text"
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
-  const avatarRef = useRef<HTMLDivElement>(null)
+  const imageRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     const container = containerRef.current
     const content = contentRef.current
-    const avatar = avatarRef.current
-    if (!container || !content || !avatar) return
+    const image = imageRef.current
+    if (!container || !content || !image) return
 
     const ctx = gsap.context(() => {
       // Animate content
@@ -26,11 +27,11 @@ export function HeroSection() {
         { y: 40, opacity: 0 },
         { y: 0, opacity: 1, duration: 0.9, ease: "power3.out", stagger: 0.12, delay: 0.35 }
       )
-
-      // Animate avatar
+      
+      // Animate hand image
       gsap.fromTo(
-        avatar,
-        { y: 40, opacity: 0, scale: 0.95 },
+        image,
+        { y: 60, opacity: 0, scale: 0.9 },
         { y: 0, opacity: 1, scale: 1, duration: 1.1, ease: "power3.out", delay: 0.5 }
       )
     }, container)
@@ -51,22 +52,36 @@ export function HeroSection() {
             {/* Role Badge */}
             <div className="flex items-center gap-2 mb-8">
               <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#1a3a5c]/10 border border-[#1a3a5c]/20">
-                <span className="text-[#18A5FD]">&#10022;</span>
                 <span className="text-sm font-medium text-[#1a3a5c]">
                   UI/UX Designer &middot; Brand Designer &middot; Frontend Developer
                 </span>
               </div>
             </div>
 
-            {/* Main Headline */}
+            {/* Main Headline with Flip Animation */}
             <h1 className="font-sans font-bold text-[#1a3a5c] text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] mb-6">
-              Designing{" "}
-              <span className="text-[#18A5FD]">a design</span>
+              <FlipLine 
+                text="Designing" 
+                highlightWords={[]}
+              />{" "}
+              <FlipLine 
+                text="a design" 
+                highlightWords={[{ word: "a", className: "text-[#18A5FD]" }, { word: "design", className: "text-[#18A5FD]" }]}
+              />
               <br />
-              that leads,
+              <FlipLine 
+                text="that leads," 
+                highlightWords={[]}
+              />
               <br />
-              not{" "}
-              <span className="text-[#18A5FD]">follow</span>.
+              <FlipLine 
+                text="not" 
+                highlightWords={[]}
+              />{" "}
+              <FlipLine 
+                text="follow." 
+                highlightWords={[{ word: "follow.", className: "text-[#18A5FD]" }]}
+              />
             </h1>
 
             {/* Description */}
@@ -108,13 +123,19 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right - Interactive 3D Avatar */}
+          {/* Right - Hand Image */}
           <div 
-            ref={avatarRef}
+            ref={imageRef}
             className="relative mt-12 lg:mt-0 flex-shrink-0"
           >
-            <div className="relative w-[280px] h-[380px] md:w-[320px] md:h-[420px] lg:w-[380px] lg:h-[480px] xl:w-[420px] xl:h-[520px]">
-              <InteractiveAvatar className="w-full h-full" />
+            <div className="relative w-[280px] h-[380px] md:w-[320px] md:h-[420px] lg:w-[400px] lg:h-[500px] xl:w-[450px] xl:h-[560px]">
+              <Image
+                src="/images/hero-hand.jpg"
+                alt="Creative hand illustration"
+                fill
+                className="object-contain"
+                priority
+              />
             </div>
           </div>
         </div>

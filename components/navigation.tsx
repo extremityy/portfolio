@@ -48,7 +48,6 @@ export function Navigation() {
     { href: "/", label: "Home" },
     { href: "/about", label: "About" },
     { href: "/projects", label: "Projects" },
-    { href: "#contact", label: "Contact" },
   ]
 
   return (
@@ -102,8 +101,13 @@ export function Navigation() {
             </div>
           </div>
 
-          {/* Empty div for layout balance */}
-          <div className="hidden md:block w-24"></div>
+          {/* Contact Button on the right */}
+          <Link
+            href="#contact"
+            className="hidden md:flex items-center justify-center px-5 py-2 rounded-full bg-[#3b82f6] text-white text-sm font-medium hover:bg-[#2563eb] transition-colors duration-300 shadow-md hover:shadow-lg"
+          >
+            Contact
+          </Link>
 
           {/* Mobile Menu Button */}
           <motion.button
@@ -144,6 +148,20 @@ export function Navigation() {
                     </Link>
                   </motion.div>
                 ))}
+                {/* Mobile Contact Button */}
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.3, delay: navLinks.length * 0.1 }}
+                >
+                  <Link
+                    href="#contact"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="inline-flex items-center justify-center px-6 py-3 mt-2 rounded-full bg-[#3b82f6] text-white font-semibold text-lg hover:bg-[#2563eb] transition-colors duration-300"
+                  >
+                    Contact
+                  </Link>
+                </motion.div>
               </div>
             </motion.div>
           )}
