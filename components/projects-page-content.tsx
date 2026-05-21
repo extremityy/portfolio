@@ -144,7 +144,7 @@ export function ProjectsPageContent() {
         <div
           ref={pinInnerRef}
           className="relative z-40 flex h-[100dvh] min-h-[100svh] w-full flex-col overflow-hidden"
-          style={{ background: siteTheme.projectsHeroGradient }}
+          style={{ backgroundColor: siteTheme.lightBlue }}
         >
           <div
             ref={flowerRef}
@@ -203,8 +203,8 @@ export function ProjectsPageContent() {
 
       {/* Project grid — scrolls under the fixed title */}
       <section
-        className="relative z-10 border-t border-white/25 px-5 pb-24 pt-28 md:px-8 md:pb-32 md:pt-32"
-        style={{ background: siteTheme.projectsListBg }}
+        className="relative z-10 border-t border-[#1a3a5c]/15 px-5 pb-24 pt-28 md:px-8 md:pb-32 md:pt-32"
+        style={{ backgroundColor: siteTheme.lightBlue }}
       >
         <div className="mx-auto max-w-7xl">
           <p className="mx-auto mb-14 max-w-2xl text-center font-sans text-sm text-[#1a3a5c]/75 md:mb-16 md:text-base">

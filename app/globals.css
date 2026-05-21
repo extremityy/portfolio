@@ -5,8 +5,8 @@
 
 :root {
   /* Light blue theme matching the design */
-  --background: oklch(0.95 0.02 220);
-  --foreground: oklch(0.15 0.05 250);
+  --background: #d4e9f7;
+  --foreground: #1a3a5c;
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.15 0.05 250);
   --popover: oklch(1 0 0);
@@ -104,7 +104,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #e8f4fc;
+  background: #d4e9f7;
 }
 
 ::-webkit-scrollbar-thumb {

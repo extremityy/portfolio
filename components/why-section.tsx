@@ -187,7 +187,7 @@ export function WhySection() {
     <section
       ref={rootRef}
       className="relative w-full overflow-x-clip"
-      style={{ background: siteTheme.sectionGradientCool }}
+      style={{ backgroundColor: siteTheme.lightBlue }}
     >
       <div
         ref={pinRef}
@@ -197,10 +197,10 @@ export function WhySection() {
         <div className="pointer-events-none absolute inset-0 z-10 flex items-center justify-center px-4">
           <h2
             ref={titleRef}
-            className="max-w-[min(1100px,92vw)] text-center font-serif text-[clamp(1.75rem,6.5vw,5.5rem)] font-bold leading-[1.08] tracking-tight text-white will-change-transform"
+            className="max-w-[min(1100px,92vw)] text-center font-serif text-[clamp(1.75rem,6.5vw,5.5rem)] font-bold leading-[1.08] tracking-tight text-[#1a3a5c] will-change-transform"
           >
             Why design brands that{" "}
-            <span className="text-[#ff6b35]">lead</span>
+            <span className="text-[#18A5FD]">lead</span>
           </h2>
         </div>
 
@@ -223,9 +223,9 @@ export function WhySection() {
                 ref={(el) => {
                   cardRefs.current[index] = el
                 }}
-                className="flex w-[min(100vw-3rem,22rem)] shrink-0 flex-col justify-center rounded-2xl border border-white/35 bg-[#b8dce8]/75 p-6 shadow-lg backdrop-blur-md md:w-[min(100vw-4rem,26rem)] md:rounded-3xl md:p-8"
+                className="flex w-[min(100vw-3rem,22rem)] shrink-0 flex-col justify-center rounded-2xl border border-[#18A5FD]/35 bg-white/75 p-6 shadow-lg backdrop-blur-md md:w-[min(100vw-4rem,26rem)] md:rounded-3xl md:p-8"
               >
-                <h3 className="mb-3 text-center font-sans text-base font-semibold text-[#ff6b35] md:mb-4 md:text-xl">
+                <h3 className="mb-3 text-center font-sans text-base font-semibold text-[#18A5FD] md:mb-4 md:text-xl">
                   {card.title}
                 </h3>
                 <p className="text-center font-sans text-sm leading-relaxed text-[#1a3a5c]/85 md:text-base">

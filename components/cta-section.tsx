@@ -120,7 +120,7 @@ export function CTASection() {
     <section
       ref={containerRef}
       className="relative min-h-[150vh] overflow-hidden"
-      style={{ background: siteTheme.ctaGradient }}
+      style={{ backgroundColor: siteTheme.lightBlue }}
     >
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden px-6">
         <div className="relative mx-auto w-full max-w-7xl">
@@ -132,7 +132,7 @@ export function CTASection() {
               <div
                 className="absolute inset-0 scale-110 rounded-full blur-[60px]"
                 style={{
-                  background: `radial-gradient(circle at 30% 30%, ${siteTheme.cyanBright}66 0%, ${siteTheme.brand}55 45%, ${siteTheme.brandHover}44 100%)`,
+                  background: `radial-gradient(circle at 30% 30%, rgba(24, 165, 253, 0.25) 0%, rgba(24, 165, 253, 0.15) 45%, transparent 100%)`,
                 }}
               />
               <div ref={flowerInnerRef} className="relative h-full w-full">

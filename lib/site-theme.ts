@@ -1,4 +1,4 @@
-/** Portfolio palette — brand #18A5FD + gradients shared across pages */
+/** Portfolio palette — brand #18A5FD + light blue throughout */
 export const siteTheme = {
   brand: "#18A5FD",
   brandHover: "#1290e0",
@@ -13,26 +13,22 @@ export const siteTheme = {
   cyanBright: "#5ec9ff",
   sky: "#7ec8e3",
   ice: "#d6eef8",
-  /** Light interior pages */
-  pageGradient:
-    "linear-gradient(180deg, #e3f4ff 0%, #c8eafd 38%, #a8dcfc 72%, #8ad0fa 100%)",
-  /** Hero / top folds */
-  heroGradient:
-    "linear-gradient(155deg, #eaf6ff 0%, #d2ecfe 22%, #9fd9fc 52%, #18A5FD 88%, #0d8bd6 100%)",
-  /** Why / mid sections */
-  sectionGradientCool:
-    "linear-gradient(180deg, #5ec9ff 0%, #42b8f8 28%, #18A5FD 58%, #0f9de0 100%)",
-  projectsHeroGradient:
-    "linear-gradient(118deg, #b8e8ff 0%, #5ec9ff 35%, #18A5FD 62%, #0d8bd6 100%)",
-  projectsListBg:
-    "linear-gradient(180deg, #c8eafd 0%, #dff2ff 48%, #eaf6ff 100%)",
-  /** Footer — dominant brand sky blue (matches CTAs / links using `brand`) */
-  footerGradient:
-    "linear-gradient(180deg, #5ec9ff 0%, #18A5FD 22%, #18A5FD 55%, #18A5FD 78%, #1290e0 100%)",
-  /** CTA strip */
-  ctaGradient:
-    "linear-gradient(180deg, #dff2ff 0%, #b8e5fc 28%, #7ec8f5 55%, #42b8f8 88%, #18A5FD 100%)",
-  projectsTitle: "#e63946",
+  /** Consistent light blue background across all pages */
+  lightBlue: "#d4e9f7",
+  lightBlueBg: "linear-gradient(180deg, #d4e9f7 0%, #d4e9f7 100%)",
+  /** Light interior pages - now using consistent light blue */
+  pageGradient: "#d4e9f7",
+  /** Hero / top folds - now using consistent light blue */
+  heroGradient: "#d4e9f7",
+  /** Why / mid sections - consistent light blue */
+  sectionGradientCool: "#d4e9f7",
+  projectsHeroGradient: "#d4e9f7",
+  projectsListBg: "#d4e9f7",
+  /** Footer — consistent light blue */
+  footerGradient: "#d4e9f7",
+  /** CTA strip - consistent light blue */
+  ctaGradient: "#d4e9f7",
+  projectsTitle: "#18A5FD",
   /** Case study / project detail */
   darkBg: "#0a111e",
   darkBgElevated: "#0f172a",
