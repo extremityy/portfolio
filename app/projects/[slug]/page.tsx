@@ -4,7 +4,7 @@ import { useLayoutEffect, useRef } from "react"
 import { useParams, useRouter } from "next/navigation"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-import { ArrowLeft, ExternalLink, Github, ChevronRight, Lightbulb, Target, Users, Clock, CheckCircle2 } from "lucide-react"
+import { ArrowLeft, ExternalLink, Github, ChevronRight, Target, Users, Clock, CheckCircle2, Search, Crosshair, Palette, Code, RefreshCw } from "lucide-react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
@@ -84,11 +84,46 @@ export default function ProjectDetailPage() {
   }
 
   const designThinkingSteps = project.designThinking ? [
-    { title: "Empathize", content: project.designThinking.empathize, icon: "❤️" },
-    { title: "Define", content: project.designThinking.define, icon: "🎯" },
-    { title: "Ideate", content: project.designThinking.ideate, icon: "💡" },
-    { title: "Prototype", content: project.designThinking.prototype, icon: "🔧" },
-    { title: "Test", content: project.designThinking.test, icon: "✅" },
+    { 
+      title: "Discover", 
+      content: project.designThinking.empathize, 
+      icon: Search,
+      iconBg: "bg-[#18A5FD]/15",
+      iconColor: "text-[#18A5FD]",
+      borderColor: "border-[#18A5FD]/30"
+    },
+    { 
+      title: "Define", 
+      content: project.designThinking.define, 
+      icon: Crosshair,
+      iconBg: "bg-pink-500/15",
+      iconColor: "text-pink-500",
+      borderColor: "border-pink-500/30"
+    },
+    { 
+      title: "Design", 
+      content: project.designThinking.ideate, 
+      icon: Palette,
+      iconBg: "bg-orange-500/15",
+      iconColor: "text-orange-500",
+      borderColor: "border-orange-500/30"
+    },
+    { 
+      title: "Develop", 
+      content: project.designThinking.prototype, 
+      icon: Code,
+      iconBg: "bg-red-500/15",
+      iconColor: "text-red-500",
+      borderColor: "border-red-500/30"
+    },
+    { 
+      title: "Improve", 
+      content: project.designThinking.test, 
+      icon: RefreshCw,
+      iconBg: "bg-purple-500/15",
+      iconColor: "text-purple-500",
+      borderColor: "border-purple-500/30"
+    },
   ] : []
 
   return (
@@ -300,33 +335,56 @@ export default function ProjectDetailPage() {
           data-detail-reveal
         >
           <div className="mx-auto max-w-7xl">
-            <div className="mb-12 text-center" data-detail-reveal-item>
-              <Lightbulb className="mx-auto mb-4 h-10 w-10 text-[#18A5FD]" />
-              <h2 className="font-sans text-3xl font-bold" style={{ color: navy }}>
-                Design <span className="text-[#18A5FD]">Thinking</span> Process
+            <div className="mb-16 text-center" data-detail-reveal-item>
+              <span 
+                className="mb-4 inline-block font-sans text-sm font-semibold uppercase tracking-widest"
+                style={{ color: "#18A5FD" }}
+              >
+                WORKFLOW
+              </span>
+              <h2 className="font-sans text-4xl font-bold md:text-5xl" style={{ color: navy }}>
+                My Design <span className="text-[#18A5FD]">Process</span>
               </h2>
-              <p className="mt-4 text-sm mx-auto max-w-2xl" style={{ color: `${navy}99` }}>
-                A human-centered approach to problem-solving that guided the development of this project
+              <p className="mt-4 mx-auto max-w-2xl text-base" style={{ color: `${navy}80` }}>
+                A strategic approach to creating digital experiences that are both beautiful and functional.
               </p>
             </div>
 
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-5">
-              {designThinkingSteps.map((step, index) => (
-                <div
-                  key={step.title}
-                  data-detail-reveal-item
-                  className="relative rounded-2xl border-2 border-white/50 bg-white/40 p-6 backdrop-blur-sm transition-all duration-300 hover:border-[#18A5FD]/50 hover:bg-white/60"
-                >
-                  <div className="mb-4 flex items-center gap-3">
-                    <span className="text-2xl">{step.icon}</span>
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#18A5FD]/15 text-sm font-bold text-[#18A5FD]">
-                      {index + 1}
+              {designThinkingSteps.map((step, index) => {
+                const IconComponent = step.icon
+                return (
+                  <div
+                    key={step.title}
+                    data-detail-reveal-item
+                    className="relative rounded-2xl border bg-white/80 p-6 backdrop-blur-sm transition-all duration-300 hover:shadow-lg"
+                    style={{ borderColor: "rgba(255,255,255,0.6)" }}
+                  >
+                    {/* Step number in top right */}
+                    <span 
+                      className="absolute top-4 right-4 font-sans text-4xl font-bold"
+                      style={{ color: `${navy}15` }}
+                    >
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
+
+                    {/* Icon */}
+                    <div className={`mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl ${step.iconBg} ${step.borderColor} border`}>
+                      <IconComponent className={`h-5 w-5 ${step.iconColor}`} />
                     </div>
+
+                    {/* Title */}
+                    <h3 className="mb-3 font-sans text-lg font-semibold" style={{ color: navy }}>
+                      {step.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-sm leading-relaxed" style={{ color: `${navy}99` }}>
+                      {step.content}
+                    </p>
                   </div>
-                  <h3 className="mb-3 font-semibold text-lg" style={{ color: navy }}>{step.title}</h3>
-                  <p className="text-sm leading-relaxed" style={{ color: `${navy}99` }}>{step.content}</p>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </section>
