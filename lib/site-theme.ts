@@ -14,20 +14,20 @@ export const siteTheme = {
   sky: "#7ec8e3",
   ice: "#d6eef8",
   /** Consistent light blue background across all pages */
-  lightBlue: "#e8f4fc",
-  lightBlueBg: "linear-gradient(180deg, #e8f4fc 0%, #e8f4fc 100%)",
+  lightBlue: "#d4e9f7",
+  lightBlueBg: "linear-gradient(180deg, #d4e9f7 0%, #d4e9f7 100%)",
   /** Light interior pages - now using consistent light blue */
-  pageGradient: "#e8f4fc",
+  pageGradient: "#d4e9f7",
   /** Hero / top folds - now using consistent light blue */
-  heroGradient: "#e8f4fc",
+  heroGradient: "#d4e9f7",
   /** Why / mid sections - consistent light blue */
-  sectionGradientCool: "#e8f4fc",
-  projectsHeroGradient: "#e8f4fc",
-  projectsListBg: "#e8f4fc",
+  sectionGradientCool: "#d4e9f7",
+  projectsHeroGradient: "#d4e9f7",
+  projectsListBg: "#d4e9f7",
   /** Footer — consistent light blue */
-  footerGradient: "#e8f4fc",
+  footerGradient: "#d4e9f7",
   /** CTA strip - consistent light blue */
-  ctaGradient: "#e8f4fc",
+  ctaGradient: "#d4e9f7",
   projectsTitle: "#18A5FD",
   /** Case study / project detail */
   darkBg: "#0a111e",

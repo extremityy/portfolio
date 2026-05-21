@@ -60,7 +60,7 @@ export function Navigation() {
         transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
         className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
           scrolled
-            ? "bg-[#e8f4fc]/95 backdrop-blur-xl shadow-sm"
+            ? "bg-[#d4e9f7]/95 backdrop-blur-xl shadow-sm"
             : "bg-transparent"
         }`}
       >
@@ -102,15 +102,8 @@ export function Navigation() {
             </div>
           </div>
 
-          {/* Contact Button on the right */}
-          <div className="hidden md:block">
-            <Link
-              href="#contact"
-              className="bg-[#18A5FD] hover:bg-[#1290e0] text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg"
-            >
-              Contact
-            </Link>
-          </div>
+          {/* Empty div for layout balance */}
+          <div className="hidden md:block w-24"></div>
 
           {/* Mobile Menu Button */}
           <motion.button
@@ -130,7 +123,7 @@ export function Navigation() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-              className="md:hidden border-b border-[#18A5FD]/25 bg-[#e8f4fc]/95 backdrop-blur-xl"
+              className="md:hidden border-b border-[#18A5FD]/25 bg-[#d4e9f7]/95 backdrop-blur-xl"
             >
               <div className="px-6 py-6 flex flex-col gap-3">
                 {navLinks.map((link, index) => (

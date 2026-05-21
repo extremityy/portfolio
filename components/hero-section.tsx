@@ -3,10 +3,10 @@
 import { useRef, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
-import Image from "next/image"
 import { gsap } from "gsap"
 import { ArrowRight, Download } from "lucide-react"
 import { siteTheme } from "@/lib/site-theme"
+import { InteractiveAvatar } from "@/components/interactive-avatar"
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -45,7 +45,7 @@ export function HeroSection() {
       style={{ backgroundColor: siteTheme.lightBlue }}
     >
       <div className="relative z-[2] flex min-h-[100dvh] flex-col">
-        <div className="flex w-full flex-1 flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-16 pt-28 pb-12 md:pt-32 lg:pt-24">
+        <div className="flex w-full flex-1 flex-col lg:flex-row items-center justify-between px-6 md:px-12 lg:px-16 pt-28 pb-12 md:pt-32 lg:pt-24 max-w-7xl mx-auto">
           {/* Left Content */}
           <div ref={contentRef} className="flex flex-col max-w-2xl lg:max-w-xl xl:max-w-2xl">
             {/* Role Badge */}
@@ -108,30 +108,13 @@ export function HeroSection() {
             </div>
           </div>
 
-          {/* Right - 3D Avatar */}
+          {/* Right - Interactive 3D Avatar */}
           <div 
             ref={avatarRef}
             className="relative mt-12 lg:mt-0 flex-shrink-0"
           >
             <div className="relative w-[280px] h-[380px] md:w-[320px] md:h-[420px] lg:w-[380px] lg:h-[480px] xl:w-[420px] xl:h-[520px]">
-              {/* Decorative dots pattern */}
-              <div className="absolute -right-8 top-1/4 opacity-30">
-                <div className="grid grid-cols-4 gap-2">
-                  {Array.from({ length: 16 }).map((_, i) => (
-                    <div key={i} className="w-1.5 h-1.5 rounded-full bg-[#18A5FD]/40" />
-                  ))}
-                </div>
-              </div>
-              
-              {/* 3D Character */}
-              <Image
-                src="/images/myself.png"
-                alt="Kencho Dorji - 3D Avatar"
-                fill
-                className="object-contain object-bottom"
-                priority
-                sizes="(max-width: 768px) 280px, (max-width: 1024px) 320px, 420px"
-              />
+              <InteractiveAvatar className="w-full h-full" />
             </div>
           </div>
         </div>
