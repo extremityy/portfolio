@@ -234,7 +234,7 @@ export default function AboutPageClient() {
     <main
       ref={mainRef}
       className="relative min-h-screen"
-      style={{ background: siteTheme.heroGradient }}
+      style={{ backgroundColor: siteTheme.lightBlue }}
     >
       <Navigation />
 

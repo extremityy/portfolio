@@ -44,8 +44,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" data-scroll-behavior="smooth">
-      <body className="font-sans antialiased">
+    <html lang="en" data-scroll-behavior="smooth" className="bg-[#e8f4fc]">
+      <body className="font-sans antialiased bg-[#e8f4fc]">
         <SmoothScrollProvider>{children}</SmoothScrollProvider>
         <ThirdPartyAnalytics />
         {process.env.NODE_ENV === 'production' && <Analytics />}

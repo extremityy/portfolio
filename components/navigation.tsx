@@ -20,11 +20,6 @@ export function Navigation() {
   const pathname = usePathname()
   const navRef = useRef<HTMLElement>(null)
   const linksRef = useRef<(HTMLAnchorElement | null)[]>([])
-  const isCaseStudy = /^\/projects\/[^/]+$/.test(pathname) && pathname !== "/projects"
-  const isProjectsIndex = pathname === "/projects"
-  const isHome = pathname === "/"
-  /** Project detail uses the same light blue hero as home — nav matches home when unscrolled */
-  const isLightHeroTop = isHome || isCaseStudy
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,124 +30,93 @@ export function Navigation() {
   }, [])
 
   useEffect(() => {
-    // GSAP animation for nav links
     gsap.fromTo(
       linksRef.current.filter(Boolean),
-      { y: -40, opacity: 0 },
+      { y: -20, opacity: 0 },
       {
         y: 0,
         opacity: 1,
-        duration: 0.9,
-        stagger: 0.12,
+        duration: 0.6,
+        stagger: 0.08,
         ease: "power3.out",
         delay: 0.2,
       }
     )
   }, [])
 
-  const navLinkClass =
-    "text-2xl md:text-3xl lg:text-4xl xl:text-[2.75rem] leading-none tracking-tight"
-
   const navLinks = [
     { href: "/", label: "Home" },
+    { href: "/about", label: "About" },
     { href: "/projects", label: "Projects" },
-    { href: "/about", label: "About Us" },
+    { href: "#contact", label: "Contact" },
   ]
 
   return (
     <>
-      {/* Main Navigation */}
       <motion.header
         ref={navRef}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
         className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-500 ${
-          isLightHeroTop && !scrolled
-            ? "bg-transparent"
-            : isProjectsIndex
-              ? scrolled
-                ? "bg-white/90 backdrop-blur-xl shadow-lg shadow-[#18A5FD]/10"
-                : "bg-white/82 backdrop-blur-md shadow-sm shadow-[#18A5FD]/5"
-              : scrolled
-                ? "bg-white/90 backdrop-blur-xl shadow-lg shadow-[#18A5FD]/10"
-                : "bg-transparent"
+          scrolled
+            ? "bg-[#e8f4fc]/95 backdrop-blur-xl shadow-sm"
+            : "bg-transparent"
         }`}
       >
         <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Logo / Profile */}
-          <Link href="/" className="flex items-center gap-3 group flex-shrink-0">
+          {/* Logo on the left */}
+          <Link href="/" className="flex items-center gap-2 group flex-shrink-0">
             <motion.div 
-              whileHover={{ scale: 1.05 }}
-              className={`relative flex-shrink-0 h-12 w-12 overflow-hidden border-2 border-[#18A5FD]/25 shadow-md transition-colors group-hover:border-[#18A5FD]/55 ${
-                isCaseStudy ? "rounded-full" : "rounded-xl"
-              }`}
+              whileHover={{ scale: 1.02 }}
+              className="relative flex-shrink-0 h-10 md:h-12"
             >
               <Image
-                src="/images/myself.png"
-                alt="Kencho Dorji"
-                width={48}
+                src="/images/kd-logo.png"
+                alt="KD Design"
+                width={160}
                 height={48}
-                className="object-cover w-full h-full"
+                className="h-full w-auto object-contain"
+                priority
               />
             </motion.div>
-            <div>
-              <p
-                className={`font-sans font-bold text-lg leading-tight ${
-                  isLightHeroTop && !scrolled ? "text-neutral-900" : "text-[#1a3a5c]"
-                }`}
-              >
-                Kencho Dorji
-              </p>
-              <p
-                className={`text-xs font-medium ${
-                  isLightHeroTop && !scrolled ? "text-neutral-600" : ""
-                }`}
-                style={isLightHeroTop && !scrolled ? undefined : { color: siteTheme.brand }}
-              >
-                Brand Designer
-              </p>
-            </div>
           </Link>
 
-          {/* Desktop Navigation - Large staggered sizes */}
-          <div className="hidden md:flex items-center gap-10">
-            {navLinks.map((link, index) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                ref={(el) => { linksRef.current[index] = el }}
-                className={`relative group font-sans font-bold transition-all duration-300 ${navLinkClass} ${
-                  isLightHeroTop && !scrolled
-                    ? pathname === link.href
-                      ? "text-white [text-shadow:0_1px_4px_rgba(13,36,64,0.35)]"
-                      : "text-white/95 [text-shadow:0_1px_3px_rgba(13,36,64,0.28)] hover:text-white"
-                    : pathname === link.href
-                      ? "text-[#1a3a5c]"
-                      : "text-[#1a3a5c]/80 hover:text-[#18A5FD]"
-                }`}
-              >
-                {link.label}
-                <motion.span
-                  className={`absolute -bottom-1 left-0 h-[3px] rounded-full ${
-                    isLightHeroTop && !scrolled ? "bg-white" : "bg-[#18A5FD]"
+          {/* Center Navigation Pill */}
+          <div className="hidden md:flex items-center">
+            <div className="flex items-center gap-1 bg-[#1a3a5c]/90 backdrop-blur-sm rounded-full px-2 py-2">
+              {navLinks.map((link, index) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  ref={(el) => { linksRef.current[index] = el }}
+                  className={`relative px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                    pathname === link.href
+                      ? "text-white"
+                      : "text-white/80 hover:text-white"
                   }`}
-                  initial={{ width: 0 }}
-                  animate={{ width: pathname === link.href ? "100%" : 0 }}
-                  whileHover={{ width: "100%" }}
-                  transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-                />
-              </Link>
-            ))}
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact Button on the right */}
+          <div className="hidden md:block">
+            <Link
+              href="#contact"
+              className="bg-[#18A5FD] hover:bg-[#1290e0] text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg"
+            >
+              Contact
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <motion.button
             whileTap={{ scale: 0.95 }}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`md:hidden p-2 ${
-              isLightHeroTop && !scrolled ? "text-[#0d2440]" : "text-[#1a3a5c]"
-            }`}
+            className="md:hidden p-2 text-[#1a3a5c]"
           >
             {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </motion.button>
@@ -166,7 +130,7 @@ export function Navigation() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3, ease: [0.25, 0.1, 0.25, 1] }}
-              className="md:hidden border-b border-[#18A5FD]/25 bg-white/95 backdrop-blur-xl"
+              className="md:hidden border-b border-[#18A5FD]/25 bg-[#e8f4fc]/95 backdrop-blur-xl"
             >
               <div className="px-6 py-6 flex flex-col gap-3">
                 {navLinks.map((link, index) => (
@@ -179,8 +143,8 @@ export function Navigation() {
                     <Link
                       href={link.href}
                       onClick={() => setMobileMenuOpen(false)}
-                      className={`block py-3 font-sans font-bold text-3xl md:text-4xl ${
-                        pathname === link.href ? "text-[#1a3a5c]" : "text-[#1a3a5c]/70"
+                      className={`block py-3 font-sans font-semibold text-lg ${
+                        pathname === link.href ? "text-[#18A5FD]" : "text-[#1a3a5c]"
                       }`}
                     >
                       {link.label}

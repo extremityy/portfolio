@@ -68,7 +68,7 @@ export default function ProjectDetailPage() {
     return (
       <main
         className="flex min-h-screen items-center justify-center px-6"
-        style={{ background: siteTheme.heroGradient }}
+        style={{ backgroundColor: siteTheme.lightBlue }}
       >
         <div className="text-center">
           <h1 className="mb-4 text-4xl font-bold" style={{ color: navy }}>
@@ -89,7 +89,7 @@ export default function ProjectDetailPage() {
     <main
       ref={mainRef}
       className="relative min-h-screen"
-      style={{ background: siteTheme.heroGradient }}
+      style={{ backgroundColor: siteTheme.lightBlue }}
     >
       <Navigation />
 
