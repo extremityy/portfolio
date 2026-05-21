@@ -268,26 +268,21 @@ export default function AboutPageClient() {
           </div>
 
           <div className="grid items-center gap-20 lg:grid-cols-2">
+            {/* Left side - Pixelated Avatar */}
             <div ref={profileParallaxRef} className="relative mx-auto max-w-md will-change-transform">
-              <div className="absolute inset-0 rotate-3 rounded-3xl bg-gradient-to-br from-primary via-accent to-primary opacity-40" />
+              <div className="absolute inset-0 rotate-3 rounded-full bg-gradient-to-br from-[#18A5FD] via-[#6366f1] to-[#18A5FD] opacity-40" />
               <div
                 ref={profileInnerRef}
-                className="relative aspect-[4/5] w-full cursor-default overflow-hidden rounded-3xl border border-[#18A5FD]/35 bg-[#e8f4fc] shadow-lg will-change-transform"
+                className="relative aspect-square w-64 md:w-80 lg:w-96 cursor-default overflow-hidden rounded-full border-4 border-[#18A5FD]/35 bg-[#e8f4fc] shadow-lg will-change-transform"
               >
                 <Image
-                  src="/images/about-avatar.png"
-                  alt="Kencho Dorji"
+                  src="/images/pixelated-avatar.jpg"
+                  alt="Kencho Dorji - Pixelated"
                   fill
-                  className="object-cover object-top"
-                  sizes="(max-width: 1024px) 100vw, 28rem"
+                  className="object-cover"
+                  sizes="(max-width: 1024px) 256px, 384px"
                   priority
                 />
-                <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-[#1a3a5c]/88 via-[#1a3a5c]/45 to-transparent px-5 pb-5 pt-16">
-                  <p className="font-serif text-lg font-semibold text-white drop-shadow-sm md:text-xl">
-                    Kencho Dorji
-                  </p>
-                  <p className="font-sans text-sm text-white/85">UI/UX Designer</p>
-                </div>
               </div>
             </div>
 
