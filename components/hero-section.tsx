@@ -7,6 +7,7 @@ import { gsap } from "gsap"
 import { ArrowRight, Download } from "lucide-react"
 import { siteTheme } from "@/lib/site-theme"
 import { InteractiveAvatar } from "@/components/interactive-avatar"
+import { FlipLine } from "@/components/flip-text"
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -58,15 +59,30 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* Main Headline */}
+            {/* Main Headline with Flip Animation */}
             <h1 className="font-sans font-bold text-[#1a3a5c] text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] mb-6">
-              Designing{" "}
-              <span className="text-[#18A5FD]">a design</span>
+              <FlipLine 
+                text="Designing" 
+                highlightWords={[]}
+              />{" "}
+              <FlipLine 
+                text="a design" 
+                highlightWords={[{ word: "a", className: "text-[#18A5FD]" }, { word: "design", className: "text-[#18A5FD]" }]}
+              />
               <br />
-              that leads,
+              <FlipLine 
+                text="that leads," 
+                highlightWords={[]}
+              />
               <br />
-              not{" "}
-              <span className="text-[#18A5FD]">follow</span>.
+              <FlipLine 
+                text="not" 
+                highlightWords={[]}
+              />{" "}
+              <FlipLine 
+                text="follow." 
+                highlightWords={[{ word: "follow.", className: "text-[#18A5FD]" }]}
+              />
             </h1>
 
             {/* Description */}

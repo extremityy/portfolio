@@ -199,8 +199,8 @@ export function WhySection() {
             ref={titleRef}
             className="max-w-[min(1100px,92vw)] text-center font-serif text-[clamp(1.75rem,6.5vw,5.5rem)] font-bold leading-[1.08] tracking-tight text-[#1a3a5c] will-change-transform"
           >
-            Why design brands that{" "}
-            <span className="text-[#18A5FD]">lead</span>
+            Why design{" "}
+            <span className="text-[#18A5FD]">that lead</span>
           </h2>
         </div>
 
