@@ -130,10 +130,10 @@ export function HeroSection() {
           >
             <div className="relative w-[280px] h-[380px] md:w-[320px] md:h-[420px] lg:w-[400px] lg:h-[500px] xl:w-[450px] xl:h-[560px]">
               <Image
-                src="/images/hero-hand.jpg"
-                alt="Creative hand illustration"
+                src="/images/hero-hand-new.png"
+                alt="Creative holographic hand illustration"
                 fill
-                className="object-contain"
+                className="object-contain drop-shadow-2xl"
                 priority
               />
             </div>

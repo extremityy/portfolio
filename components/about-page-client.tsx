@@ -268,22 +268,27 @@ export default function AboutPageClient() {
           </div>
 
           <div className="grid items-center gap-20 lg:grid-cols-2">
-            {/* Left side - Pixelated Avatar */}
-            <div ref={profileParallaxRef} className="relative mx-auto max-w-md will-change-transform">
-              <div className="absolute inset-0 rotate-3 rounded-full bg-gradient-to-br from-[#18A5FD] via-[#6366f1] to-[#18A5FD] opacity-40" />
+            {/* Left side - Ghibli Portrait */}
+            <div ref={profileParallaxRef} className="relative mx-auto max-w-md will-change-transform flex flex-col items-center">
+              {/* Decorative ring */}
+              <div className="absolute inset-0 rotate-3 rounded-3xl bg-gradient-to-br from-[#18A5FD]/30 via-[#b8e0f7]/40 to-[#18A5FD]/20 opacity-60 blur-sm" />
               <div
                 ref={profileInnerRef}
-                className="relative aspect-square w-64 md:w-80 lg:w-96 cursor-default overflow-hidden rounded-full border-4 border-[#18A5FD]/35 bg-[#e8f4fc] shadow-lg will-change-transform"
+                className="relative w-64 md:w-80 lg:w-[360px] cursor-default overflow-hidden rounded-3xl border-2 border-[#18A5FD]/40 shadow-2xl will-change-transform"
+                style={{ aspectRatio: "3/4" }}
               >
                 <Image
-                  src="/images/pixelated-avatar.jpg"
-                  alt="Kencho Dorji - Pixelated"
+                  src="/images/about-ghibli.jpg"
+                  alt="Kencho Dorji - Studio Ghibli Illustration"
                   fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 256px, 384px"
+                  className="object-cover object-top"
+                  sizes="(max-width: 1024px) 256px, 360px"
                   priority
                 />
+                {/* Subtle bottom fade */}
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#d4e9f7]/60 to-transparent pointer-events-none" />
               </div>
+              <span className="mt-4 text-xs font-sans text-[#1a3a5c]/50 tracking-wider uppercase">Studio Ghibli Edition</span>
             </div>
 
             <div ref={bioRef} className="space-y-5 font-sans leading-relaxed text-[#1a3a5c]/70">
