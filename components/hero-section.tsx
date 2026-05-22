@@ -28,11 +28,32 @@ export function HeroSection() {
         { y: 0, opacity: 1, duration: 0.9, ease: "power3.out", stagger: 0.12, delay: 0.35 }
       )
       
-      // Animate hand image
+      // Animate hand image — entrance
       gsap.fromTo(
         image,
         { y: 60, opacity: 0, scale: 0.9 },
-        { y: 0, opacity: 1, scale: 1, duration: 1.1, ease: "power3.out", delay: 0.5 }
+        {
+          y: 0, opacity: 1, scale: 1, duration: 1.1, ease: "power3.out", delay: 0.5,
+          onComplete: () => {
+            // Continuous floating loop
+            gsap.to(image, {
+              y: -22,
+              rotation: 3,
+              duration: 2.8,
+              ease: "sine.inOut",
+              yoyo: true,
+              repeat: -1,
+            })
+            // Subtle scale breathe on a different cycle
+            gsap.to(image, {
+              scale: 1.03,
+              duration: 3.6,
+              ease: "sine.inOut",
+              yoyo: true,
+              repeat: -1,
+            })
+          },
+        }
       )
     }, container)
 
