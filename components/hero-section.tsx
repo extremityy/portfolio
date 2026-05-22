@@ -133,8 +133,9 @@ export function HeroSection() {
                 src="/images/hero-hand-new.png"
                 alt="Creative holographic hand illustration"
                 fill
-                className="object-contain drop-shadow-2xl"
+                className="object-contain"
                 priority
+                style={{ background: "transparent" }}
               />
             </div>
           </div>

@@ -288,7 +288,7 @@ export default function AboutPageClient() {
                 {/* Subtle bottom fade */}
                 <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#d4e9f7]/60 to-transparent pointer-events-none" />
               </div>
-              <span className="mt-4 text-xs font-sans text-[#1a3a5c]/50 tracking-wider uppercase">Studio Ghibli Edition</span>
+
             </div>
 
             <div ref={bioRef} className="space-y-5 font-sans leading-relaxed text-[#1a3a5c]/70">
